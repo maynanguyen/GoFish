@@ -22,6 +22,11 @@ using namespace std;
 
         Player p1("Joe");
         Player p2("Jane");
+        Card c;
+        cout<<c.getRank()<<endl;
+        cout<<c.rankString(c.getRank())<<endl;
+
+
 
         Deck d;  //create a deck of cards
         d.shuffle();
