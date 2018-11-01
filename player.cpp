@@ -1,28 +1,58 @@
-//
-// Created by Mayna on 10/28/2018.
-//
+//player.cpp
+// -- EE 312 Project 6
+
+//Student information for project:
+//Replace <NAME> with your name.
+//On my honor, Sarah Bi & Mayna Nguyen, this programming project is my own work
+//and I have not provided this code to any other student.
+//Name: Sarah Bi, Mayna Nguyen
+//email address: sarahbi876@utexas.edu, maynanguyen@utexas.edu
+//UTEID: sb48785, mhn436
+//Section 5 digit ID: 16240
+
+//Created by Sarah Bi and Mayna Nguyen 10/31/2018.
+
 #include "player.h"
 #include "card.h"
-Player::Player(){
 
+Player::Player(){
+    myName = " ";
+    myHand;
+    myBook;
 };
 
-//adds a card to the hand
-void Player::addCard(Card c)
-{
-
+Player::Player(string name) {
+    myName = name;
+    myHand;
+    myBook;
 }
-void bookCards(Card c1, Card c2){
 
+string Player::getName() const {
+    return myName;
+}
+
+//adds a card to the hand
+void Player::addCard(Card c) {
+    myHand.push_back(c);
+}
+
+//adds cards of same rank to book
+void Player::bookCards(Card c1, Card c2){
+    myBook.push_back(c1);
+    myBook.push_back(c2);
 }
 
 //OPTIONAL
 // comment out if you decide to not use it
 //this function will check a players hand for a pair.
 //If a pair is found, it returns true and populates the two variables with the cards tha make the pair.
-
 bool Player::checkHandForBook(Card &c1, Card &c2){
+    int rank1 = c1.getRank();
+    int rank2 = c2.getRank();
 
+    if (rank1 == rank2){
+        return true;
+    }
 }
 
 //OPTIONAL
@@ -48,18 +78,34 @@ Card Player::removeCardFromHand(Card c){
 
 }
 
-string Player::showHand() const{
-
+string Player::showHand() const {
+    string hand;
+    int HandSize = getHandSize();
+    for (int i=0; i < HandSize; i++){
+        string card = myHand[i].toString();
+        hand = hand + card + " ";
+    }
+    return hand;
 }
-string Player::showBooks() const{
 
+string Player::showBooks() const{
+    string book;
+    int BookSize = getBookSize();
+    for (int i=0; i<BookSize; i++){
+        string card = myBook[i].toString();
+        book = book + card;
+    }
+    return book;
 }
 
 int Player::getHandSize() const{
-
+    int HandSize = myHand.size();
+    return HandSize;
 }
-int Player::getBookSize() const{
 
+int Player::getBookSize() const{
+    int BookSize = myBook.size();
+    return BookSize/2;
 }
 
 //OPTIONAL

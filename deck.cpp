@@ -60,7 +60,6 @@ void Deck::shuffle() {
 
 // get a card, after 52 are dealt, fail
 Card Deck::dealCard(){
-    //cout << myIndex << endl;
     Card c = myCards[myIndex];
     myIndex++;
     return c;

@@ -44,7 +44,7 @@ public:
     //constructor with rank and suit
     //creates card of the specified rank and suit
     //sets card index to 0
-    //input- none
+    //input- rank and suit
     //output- none
     Card(int rank, Suit s);
 
@@ -65,7 +65,7 @@ public:
 
     //FUNCTION- getRank
     //finds the rank of the specified card (1, 2, ... 13)
-    //input- valid card
+    //input- none
     //output- rank of card
     int  getRank() const;  // return rank, 1..13
 
