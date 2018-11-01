@@ -18,24 +18,46 @@ using namespace std;
 
     int main( )
     {
-        int numCards = 5;
+        Deck d;
+        //d.shuffle();
+        Card c1(2,(Card::spades));
+        cout<< c1 << endl;
+        cout << "Rank: " << c1.getRank() << endl;
 
-        Player p1("Joe");
-        Player p2("Jane");
-        Card c;
-        cout<<c.getRank()<<endl;
-        cout<<c.rankString(c.getRank())<<endl;
+//        Card c = d.dealCard();
+//        cout << "deal test " << c << endl;
+//        cout << endl;
 
-
-
-        Deck d;  //create a deck of cards
-        d.shuffle();
-
-        dealHand(d, p1, numCards);
-        dealHand(d, p2, numCards);
-
-        cout << p1.getName() <<" has : " << p1.showHand() << endl;
-        cout << p2.getName() <<" has : " << p2.showHand() << endl;
+//        Player p("Joe");
+//        cout << p.getName() << endl;
+//        p.addCard(c);
+//        p.addCard(d.dealCard());
+//        cout << p.showHand() << endl;
+//
+//
+//        int numCards = 5;
+//
+//        vector <Card> cards(numCards);
+//
+//        srand((unsigned)time(0));  //seed the random number generator
+//
+//        for (int i = 0; i < numCards; i++) {
+//            int rank = (rand() % 13) + 1;
+//            int suit = (rand() % 4) + 1;
+//            Card c(rank,(Card::Suit)suit);
+//            cout << "rank - " << rank << "  "  << c <<  endl;
+//            cards[i] = c;
+//        }
+//
+//        for (int i = 0; i < cards.size(); i++)
+//            cout << cards[i] << endl;
+//
+//        cards.erase(cards.begin()+2);
+//
+//        cout <<"after"<<endl;
+//
+//        for (int i = 0; i < cards.size(); i++)
+//            cout << cards[i] << endl;
 
         return EXIT_SUCCESS;
     }

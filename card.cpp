@@ -77,10 +77,15 @@ bool Card::operator == (const Card& rhs) const{
            mySuit == rhs.mySuit );
 
 }
-bool Card::operator != (const Card& rhs) const{
+bool Card::operator != (const Card& rhs) const {
     if (myRank != rhs.myRank ||
-        mySuit != rhs.mySuit ){
+        mySuit != rhs.mySuit) {
         return true;
     }
-
 }
+ostream& operator << (ostream& out, const Card& c)
+{
+    out << c.toString() << " ";
+    return out;
+} 
+
