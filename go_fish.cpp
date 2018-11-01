@@ -24,9 +24,15 @@ using namespace std;
         cout<< c1 << endl;
         cout << "Rank: " << c1.getRank() << endl;
 
-//        Card c = d.dealCard();
-//        cout << "deal test " << c << endl;
-//        cout << endl;
+        Card c2 = d.dealCard();
+        cout << "deal test " << c2 << endl;
+        Card c3 = d.dealCard();
+        cout << "deal test " << c3 << endl;
+        Card c4 = d.dealCard();
+        cout << "deal test " << c4 << endl;
+
+
+      //  cout << endl;
 
 //        Player p("Joe");
 //        cout << p.getName() << endl;
