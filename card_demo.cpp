@@ -19,7 +19,11 @@ void dealHand(Deck &d, Player &p, int numCards);
 int main( ) {
 
     int HandSize;
+    int bookSize;
     string hand;
+    string book;
+    bool checkBook;
+
 
     //test player constructors
     Player p1("Sarah");
@@ -32,6 +36,44 @@ int main( ) {
 
     //test deck constructor
     Deck d;
+
+    //test book stuff
+    Card c20 = Card(2,Card::spades);
+    cout<< c20 << endl;
+
+    Card c21 = Card(2, Card::hearts);
+    cout<< c21 << endl;
+    cout << " " << endl;
+
+    p1.addCard(c20);
+    p1.addCard(c21);
+
+    checkBook = p1.checkHandForBook(c20, c21);
+    if (checkBook == true) {
+        cout << "Book found" << endl;
+        p1.bookCards(c20,c21);
+    }
+    else{
+        cout << "Book not found" << endl;
+    }
+
+    cout << "Sarah's books" << endl;
+    book = p1.showBooks();
+    cout << book << endl;
+
+    cout << "Book's book size" << endl;
+    bookSize = p1.getBookSize();
+    cout << bookSize << endl;
+
+
+
+    cout << " " << endl;
+    cout << " " << endl;
+    cout << " " << endl;
+    cout << " " << endl;
+    cout << " " << endl;
+    cout << " " << endl;
+
 
     //deal ordered cards to player
     dealHand(d, p1, 7);
@@ -53,6 +95,7 @@ int main( ) {
     Card c2 = d.dealCard();
     cout<< c2 << endl;
     cout << " " << endl;
+
 
     //test add card, getHandSize, showHand
     p1.addCard(c1);

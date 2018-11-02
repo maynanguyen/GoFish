@@ -91,7 +91,7 @@ string Player::showHand() const {
 string Player::showBooks() const{
     string book;
     int BookSize = getBookSize();
-    for (int i=0; i<BookSize; i++){
+    for (int i=0; i<BookSize*2; i++){
         string card = myBook[i].toString();
         book = book + card;
     }
