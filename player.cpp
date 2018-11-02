@@ -19,12 +19,16 @@ Player::Player(){
     myName = " ";
     myHand;
     myBook;
+    unsigned int currentTime = (unsigned) time(0);
+    srand(currentTime);  //seed the random number generator
 };
 
 Player::Player(string name) {
     myName = name;
     myHand;
     myBook;
+    unsigned int currentTime = (unsigned) time(0);
+    srand(currentTime);  //seed the random number generator
 }
 
 string Player::getName() const {
@@ -59,22 +63,46 @@ bool Player::checkHandForBook(Card &c1, Card &c2){
 // comment out if you decide to not use it
 //Does the player have a card with the same rank as c in her hand?
 bool Player::rankInHand(Card c) const{
-
+    for(int i = 0; i < myHand.size(); i++)
+        if(myHand[i].getRank() == c.getRank()) {
+            return true;
+        }
+    return false;
 }
 
 //uses some strategy to choose one card from the player's
 //hand so they can say "Do you have a 4?"
 Card Player::chooseCardFromHand() const{
+    Card temp; //make a Card to temporarily choose
+    int currentSize = myHand.size();
+    // find random number to pick a card
+        long num1 = (rand() % currentSize);
+    temp = myHand.at(num1);
+    return temp;
 
 }
 
 //Does the player have the card c in her hand?
 bool Player::cardInHand(Card c) const{
-
+   //  vector<Card>:: iterator iter;
+    for(int i = 0; i < myHand.size(); i++)
+    {
+        if (myHand[i] == c){
+            return true;
+        }
+    }
+    return false;
 }
 
 //Remove the card c from the hand and return it to the caller
 Card Player::removeCardFromHand(Card c){
+    vector<Card>:: iterator iter;
+
+    for(iter = myHand.begin(); iter < myHand.end(); iter++)
+        if(*iter == c){
+            myHand.erase(iter);
+            return c;
+        }
 
 }
 
@@ -115,6 +143,17 @@ int Player::getBookSize() const{
 
 bool Player::checkHandForPair(Card &c1, Card &c2){
 
+    for(int i = 0; i < myHand.size(); i++){
+        c1 = myHand[i];
+        for (int j = 0; j< myHand.size(); j++){
+            if(myHand[j] == c1){
+                c2 = myHand[j];
+                return true;
+            }
+        }
+    }
+    return false;
+
 }
 
 //OPTIONAL
@@ -123,5 +162,9 @@ bool Player::checkHandForPair(Card &c1, Card &c2){
 //e.g. will return true if the player has a 7d and the parameter is 7c
 
 bool Player::sameRankInHand(Card c) const{
-
+    for(int i = 0; i < myHand.size(); i++)
+        if(myHand[i].getRank() == c.getRank()) {
+            return true;
+        }
+    return false;
 }
