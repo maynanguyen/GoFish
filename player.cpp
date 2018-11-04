@@ -21,14 +21,17 @@ Player::Player(){
     myBook;
     unsigned int currentTime = (unsigned) time(0);
     srand(currentTime);  //seed the random number generator
+
 };
 
 Player::Player(string name) {
     myName = name;
     myHand;
     myBook;
-    unsigned int currentTime = (unsigned) time(0);
-    srand(currentTime);  //seed the random number generator
+    //unsigned int currentTime = (unsigned) time(0);
+    srand(1541361910);
+    //srand(currentTime);  //seed the random number generator
+    //cout  << currentTime << endl;
 }
 
 string Player::getName() const {
@@ -76,7 +79,7 @@ Card Player::chooseCardFromHand() const{
     Card temp; //make a Card to temporarily choose
     int currentSize = myHand.size();
     // find random number to pick a card
-        long num1 = (rand() % currentSize);
+    long num1 = (rand() % currentSize);
     temp = myHand.at(num1);
     return temp;
 
@@ -84,7 +87,7 @@ Card Player::chooseCardFromHand() const{
 
 //Does the player have the card c in her hand?
 bool Player::cardInHand(Card c) const{
-   //  vector<Card>:: iterator iter;
+    //  vector<Card>:: iterator iter;
     for(int i = 0; i < myHand.size(); i++)
     {
         if (myHand[i] == c){
@@ -167,4 +170,43 @@ bool Player::sameRankInHand(Card c) const{
             return true;
         }
     return false;
+}
+
+//NEW FUNCTION
+//check for books without passing any cards in
+void Player::bookCardsHelper() {
+    int HandSize = getHandSize();
+    Card c1;
+    Card c2;
+    bool status;
+    int k=0;
+
+    for (int i=0; i<HandSize; i++){
+        for (int j=i+1; j<HandSize; j++){
+            c1 = myHand[i];
+            c2 = myHand[j];
+            status = checkHandForBook(c1, c2);
+            if (status == true){
+                bookCards(c1, c2);
+                removeCardFromHand(c1);
+                removeCardFromHand(c2);
+                j = 0;
+                HandSize = HandSize-2;
+            }
+        }
+    }
+}
+
+Card Player::findCard(Card c){
+    int Handsize;
+    int i=0;
+    Card currentCard;
+    Handsize = getHandSize();
+
+    for (i=0; i<Handsize; i++){
+        currentCard = myHand[i];
+        if (currentCard.getRank() == c.getRank()){
+            return currentCard;
+        }
+    }
 }

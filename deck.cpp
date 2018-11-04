@@ -20,8 +20,10 @@ using namespace std;
 // pristine, sorted deck
 Deck::Deck(){
 
-    unsigned int currentTime = (unsigned) time(0);
-    srand(currentTime);  //seed the random number generator
+    //unsigned int currentTime = (unsigned) time(0);
+    //srand(currentTime);  //seed the random number generator
+    srand(1541358567);
+    //cout << currentTime << endl;
 
     myIndex = 0;
 

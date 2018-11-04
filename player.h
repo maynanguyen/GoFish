@@ -112,6 +112,21 @@ public:
 
     bool sameRankInHand(Card c) const;
 
+    //NEW FUNCTION
+    //FUNCTION- void bookCardsHelper
+    //this function will check a players hand for a pair.
+    //If a pair is found, it will book the pair
+    //input- none
+    //output- none
+    void bookCardsHelper();
+
+    //NEW FUNCTION
+    //FUNCTION- void bookCardsHelper
+    //this function will check a players hand for a pair.
+    //If a pair is found, it will book the pair
+    //input- none
+    //output- none
+    Card findCard(Card c);
 
 private:
 
