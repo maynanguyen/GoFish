@@ -13,8 +13,11 @@
 //Created by Sarah Bi and Mayna Nguyen 10/31/2018.
 
 #include "card.h"
-#include <string>
+#include <string.h>
 #include <iostream>
+#include <stdio.h>
+#include <sstream>
+
 
 using namespace std;
 
@@ -78,7 +81,12 @@ string Card::rankString(int r) const {
     else if (myRank == 13){
         return "K";
     }
-    else return to_string(r);
+   	//else return std::to_string(r);
+    std::ostringstream ss;
+    long num = (long) r;
+    ss << num;
+    return ss.str();
+
 }
 
 //check if two cards are equal
@@ -99,4 +107,4 @@ bool Card::operator != (const Card& rhs) const {
 ostream& operator << (ostream& out, const Card& c) {
     out << c.toString() << " ";
     return out;
-} 
+}
