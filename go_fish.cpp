@@ -96,7 +96,7 @@ int main() {
     cout << hand << endl;
     cout << " " << endl;
 
-    
+
 
    // while ((p1.getBookSize() + p2.getBookSize()) != 26) {
 
@@ -204,55 +204,54 @@ int main() {
         cout << hand << endl;
         cout << " " << endl;
 
+
+
+//round 2
+    //1- ask for card
+    //checkCard = p1.chooseCardFromHand();
+    checkCard = Card(13, Card::clubs);
+    cout << "Sarah: Do you have a(n) " << checkCard.getRank() << endl;
+    cout << " " << endl;
+
+
+    //2- if p2 has card, get card from p2
+    if (p2.rankInHand(checkCard)) {
+        cout << "Mayna: Yes" << endl;
+        i = checkCard.getRank();
+        for (j = 0; j < 4; j++) {
+            matchCard = Card(i, suits[j]);
+            if (p2.cardInHand(matchCard)) {
+                p2.removeCardFromHand(matchCard);
+                p1.addCard(matchCard);
+            }
+        }
     }
 
+        //3- if no card, draw card from deck
+    else{
+        cout << "Mayna: Go fish" << endl;
+        card = d.dealCard();
+        cout << "Sarah draws a(n) " << card << endl;
+        p1.addCard(card);
+    }
 
-////round 2
-//    //1- ask for card
-//    //checkCard = p1.chooseCardFromHand();
-//    checkCard = Card(13, Card::clubs);
-//    cout << "Sarah: Do you have a(n) " << checkCard.getRank() << endl;
-//    cout << " " << endl;
-//
-//
-//    //2- if p2 has card, get card from p2
-//    if (p2.rankInHand(checkCard)) {
-//        cout << "Mayna: Yes" << endl;
-//        i = checkCard.getRank();
-//        for (j = 0; j < 4; j++) {
-//            matchCard = Card(i, suits[j]);
-//            if (p2.cardInHand(matchCard)) {
-//                p2.removeCardFromHand(matchCard);
-//                p1.addCard(matchCard);
-//            }
-//        }
-//    }
-//
-//        //3- if no card, draw card from deck
-//    else{
-//        cout << "Mayna: Go fish" << endl;
-//        card = d.dealCard();
-//        cout << "Sarah draws a(n) " << card << endl;
-//        p1.addCard(card);
-//    }
-//
-//    //4- check for books
-//    while (p1.checkHandForBook(c1, c2)){
-//        p1.bookCards(c1, c2);
-//        cout << "Sarah books the " << c1.getRank() << "s" << endl;
-//        p1.removeCardFromHand(c1);
-//        p1.removeCardFromHand(c2);
-//    }
-//
-//    cout << "Sarah's cards (after Sarah's turn)" << endl;
-//    hand = p1.showHand();
-//    cout << hand << endl;
-//
-//
-//    cout << "Maynas's cards (after Sarah's turn)" << endl;
-//    hand = p2.showHand();
-//    cout << hand << endl;
-//    cout << " " << endl;
+    //4- check for books
+    while (p1.checkHandForBook(c1, c2)){
+        p1.bookCards(c1, c2);
+        cout << "Sarah books the " << c1.getRank() << "s" << endl;
+        p1.removeCardFromHand(c1);
+        p1.removeCardFromHand(c2);
+    }
+
+    cout << "Sarah's cards (after Sarah's turn)" << endl;
+    hand = p1.showHand();
+    cout << hand << endl;
+
+
+    cout << "Maynas's cards (after Sarah's turn)" << endl;
+    hand = p2.showHand();
+    cout << hand << endl;
+    cout << " " << endl;
 
 
 
