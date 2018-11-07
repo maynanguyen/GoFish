@@ -16,7 +16,7 @@
 #define _DECK_H
 
 #include "card.h"
-
+#include <string>
 
 class Deck {
 

@@ -53,14 +53,26 @@ void Player::bookCards(Card c1, Card c2){
 // comment out if you decide to not use it
 //this function will check a players hand for a pair.
 //If a pair is found, it returns true and populates the two variables with the cards tha make the pair.
-bool Player::checkHandForBook(Card &c1, Card &c2){
-    int rank1 = c1.getRank();
-    int rank2 = c2.getRank();
+bool Player::checkHandForBook(Card &c1, Card &c2) {
+    int i;
+    int j;
+    int rank1;
+    int rank2;
+    int HandSize = getHandSize();
 
-    if (rank1 == rank2){
-        return true;
+    for (i = 0; i < HandSize; i++) {
+        for (j = i + 1; j < HandSize; j++) {
+            c1 = myHand[i];
+            c2 = myHand[j];
+            rank1 = c1.getRank();
+            rank2 = c2.getRank();
+            if (rank1 == rank2) {
+                return true;
+            }
+        }
     }
 }
+
 
 //OPTIONAL
 // comment out if you decide to not use it
@@ -172,41 +184,41 @@ bool Player::sameRankInHand(Card c) const{
     return false;
 }
 
-//NEW FUNCTION
-//check for books without passing any cards in
-void Player::bookCardsHelper() {
-    int HandSize = getHandSize();
-    Card c1;
-    Card c2;
-    bool status;
-    int k=0;
-
-    for (int i=0; i<HandSize; i++){
-        for (int j=i+1; j<HandSize; j++){
-            c1 = myHand[i];
-            c2 = myHand[j];
-            status = checkHandForBook(c1, c2);
-            if (status == true){
-                bookCards(c1, c2);
-                removeCardFromHand(c1);
-                removeCardFromHand(c2);
-                j = 0;
-                HandSize = HandSize-2;
-            }
-        }
-    }
-}
-
-Card Player::findCard(Card c){
-    int Handsize;
-    int i=0;
-    Card currentCard;
-    Handsize = getHandSize();
-
-    for (i=0; i<Handsize; i++){
-        currentCard = myHand[i];
-        if (currentCard.getRank() == c.getRank()){
-            return currentCard;
-        }
-    }
-}
+////NEW FUNCTION
+////check for books without passing any cards in
+//void Player::bookCardsHelper() {
+//    int HandSize = getHandSize();
+//    Card c1;
+//    Card c2;
+//    bool status;
+//    int k=0;
+//
+//    for (int i=0; i<HandSize; i++){
+//        for (int j=i+1; j<HandSize; j++){
+//            c1 = myHand[i];
+//            c2 = myHand[j];
+//            status = checkHandForBook(c1, c2);
+//            if (status == true){
+//                bookCards(c1, c2);
+//                removeCardFromHand(c1);
+//                removeCardFromHand(c2);
+//                j = 0;
+//                HandSize = HandSize-2;
+//            }
+//        }
+//    }
+//}
+//
+//Card Player::findCard(Card c){
+//    int Handsize;
+//    int i=0;
+//    Card currentCard;
+//    Handsize = getHandSize();
+//
+//    for (i=0; i<Handsize; i++){
+//        currentCard = myHand[i];
+//        if (currentCard.getRank() == c.getRank()){
+//            return currentCard;
+//        }
+//    }
+//}
