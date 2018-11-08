@@ -13,6 +13,8 @@
 //Created by Sarah Bi and Mayna Nguyen 10/31/2018.
 
 #include "card.h"
+#include "player.h"
+#include "deck.h"
 #include <string.h>
 #include <iostream>
 #include <stdio.h>

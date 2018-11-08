@@ -14,8 +14,10 @@
 
 #include "deck.h"
 #include "card.h"
+#include "player.h"
 #include <string>
 #include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
