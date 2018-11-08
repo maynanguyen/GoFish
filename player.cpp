@@ -31,10 +31,10 @@ Player::Player(string name) {
     myName = name;
     myHand;
     myBook;
-    //unsigned int currentTime = (unsigned) time(0);
-    srand(1541361910);
-    //srand(currentTime);  //seed the random number generator
-    //cout  << currentTime << endl;
+    unsigned int currentTime = (unsigned) time(0);
+    //srand(1541361910);
+    srand(currentTime);  //seed the random number generator
+    //myfile  << currentTime << endl;
 }
 
 string Player::getName() const {
