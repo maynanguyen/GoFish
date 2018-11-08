@@ -15,6 +15,7 @@
 #include "deck.h"
 #include "card.h"
 #include <string>
+#include <cstdlib>
 
 using namespace std;
 

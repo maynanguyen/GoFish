@@ -3,18 +3,18 @@
 # Modified by jwebb
 
 CPP  = g++
-RES  =
+RES  = 
 OBJ  = card.o deck.o go_fish.o player.o $(RES)
 LINKOBJ  = card.o deck.o go_fish.o player.o $(RES)
 BIN  = gofish
-CXXFLAGS = $(CXXINCS)
-CFLAGS = $(INCS)
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
 RM = rm -f
 
 
-all: gofish
+all: gofish 
 
-clean:
+clean: 
 	${RM} $(OBJ) $(BIN)
 
 $(BIN): $(OBJ)

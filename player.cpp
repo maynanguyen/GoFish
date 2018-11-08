@@ -14,6 +14,7 @@
 
 #include "player.h"
 #include "card.h"
+#include <cstdlib>
 
 Player::Player(){
     myName = " ";

@@ -18,7 +18,6 @@
 #include <stdio.h>
 #include <sstream>
 
-
 using namespace std;
 
 // default card constructor, ace of spades
@@ -81,12 +80,11 @@ string Card::rankString(int r) const {
     else if (myRank == 13){
         return "K";
     }
-   	//else return std::to_string(r);
+    //else return std::to_string(r);
     std::ostringstream ss;
     long num = (long) r;
     ss << num;
     return ss.str();
-
 }
 
 //check if two cards are equal
@@ -107,4 +105,4 @@ bool Card::operator != (const Card& rhs) const {
 ostream& operator << (ostream& out, const Card& c) {
     out << c.toString() << " ";
     return out;
-}
+} 
