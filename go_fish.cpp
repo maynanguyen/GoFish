@@ -7,6 +7,7 @@
 #include "player.h"
 #include "deck.h"
 #include <string>
+#include <fstream>
 
 using namespace std;
 
@@ -17,6 +18,9 @@ void dealHand(Deck &d, Player &p, int numCards);
 
 //DO NOT DELETE!!!!
 int main() {
+
+    ofstream myfile;
+    myfile.open ("Go_Fish.txt");
 
     Card::Suit suits[4] = {Card::spades, Card::hearts, Card::diamonds, Card::clubs};
     int HandSize;
